@@ -1,18 +1,18 @@
-import shinyLight from "./shiny-light.js"
-import platosCave from "./platos-cave.js"
+import shinyLight from "./shiny-light.js";
+import platosCave from "./platos-cave.js";
 
 function router() {
   switch (location.hash) {
     case "#shiny-light":
-      $('main').html(shinyLight())
-      break
+      document.querySelector('main').innerHTML = shinyLight();
+      break;
     case "#platos-cave":
-      $('main').html(platosCave())
-      break
+      document.querySelector('main').innerHTML = platosCave();
+      break;
     default:
-      $('main').html(`<h2><strong>404</strong> Good job! You've broken the internet.</h2>`)
+      document.querySelector('main').innerHTML = `<h2><strong>404</strong> Good job! You've broken the internet.</h2>`;
   }
 }
 
-window.onhashchange = router
-window.onload = router
+window.onhashchange = router;
+window.onload = router;
