@@ -16,12 +16,18 @@ export function addToCart(target) {
   // add item
   document.querySelector('#cart ul').insertAdjacentHTML("beforeend", `
     <li>
-      ${$product.querySelector('.name').textContent} <span class="price">${$product.querySelector('.price').textContent}</span>
+      ${$product.querySelector('.name').textContent} <span class="price">${$product.querySelector('.price').textContent}</span> <button onclick="removeFromCart(this)">x</button>
     </li >
   `);
 
   updateTotal();
 }
+
+window.removeFromCart = function (target) {
+  const $item = target.parentElement;
+  $item.remove();
+  updateTotal();
+};
 
 function updateTotal() {
   let total = 0;
